@@ -7,47 +7,72 @@
 
 import SwiftUI
 
-@MainActor public final class Config {
+@MainActor public enum Measurements {
     
-    static let global: Config = Config()
+    static private(set) var cornerRadius: CGFloat = 8.0
     
-    public let cornerRadius: CGFloat = 8.0
-    
-    public let primaryButton = PrimaryButtonColors(
-        background: .black,
-        foregound: .white
-    )
-    
-    public let secondaryButton = SecondaryButtonColors(
-        background: .clear,
-        foreground: .black,
-        outline: .black
-    )
+    public static func configure(cornerRadius: CGFloat) {
+        self.cornerRadius = cornerRadius
+    }
 }
 
-@MainActor public final class PrimaryButtonColors {
+/*
+@MainActor public enum PrimaryButtonColors {
     
-    let background: Color
+    static private(set) var background: Color = .black
     
-    let foregound: Color
+    static private(set) var backgroundDisabled: Color = .gray
     
-    init(background: Color, foregound: Color) {
+    static private(set) var foregound: Color = .white
+    
+    static func configure(
+        background: Color,
+        foregound: Color
+    ) {
         self.background = background
         self.foregound = foregound
     }
 }
 
-@MainActor public final class SecondaryButtonColors {
+@MainActor public enum SecondaryButtonColors {
     
-    let background: Color
+    static private(set) var background: Color = .clear
     
-    let foreground: Color
+    static private(set) var foreground: Color = .black
     
-    let outline: Color
+    static private(set) var outline: Color = .black
     
-    init(background: Color, foreground: Color, outline: Color) {
+    public static func configure(
+        background: Color,
+        foreground: Color,
+        outline: Color
+    ) {
         self.background = background
         self.foreground = foreground
         self.outline = outline
     }
 }
+
+@MainActor public enum TextFieldColors {
+    
+    static private(set) var background: Color = .gray
+    
+    static private(set) var foreground: Color = .black
+    
+    static private(set) var outlineIdle: Color = .gray
+    
+    static private(set) var outlineActive: Color = .black
+    
+    public static func configure(
+        background: Color,
+        foreground: Color,
+        outlineIdle: Color,
+        outlineActive: Color
+    ) {
+        self.background = background
+        self.foreground = foreground
+        self.outlineIdle = outlineIdle
+        self.outlineActive = outlineActive
+    }
+}
+*/

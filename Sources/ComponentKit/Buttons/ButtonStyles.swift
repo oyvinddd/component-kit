@@ -9,17 +9,22 @@ import SwiftUI
 
 public struct PrimaryButtonStyle: ButtonStyle {
     
+    @Environment(\.isEnabled) private var isEnabled
+    
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundStyle(Config.global.primaryButton.foregound)
+            .foregroundStyle(Colors.Button.primaryForeground)
             .font(.headline)
             .padding(16)
             .frame(maxWidth: .infinity)
             .background(
-                Color(Config.global.primaryButton.background)
-                    .opacity(configuration.isPressed ? 0.7 : 1.0)
+                Color(
+                    isEnabled
+                    ? Colors.Button.primaryBackground
+                    : Colors.Button.primaryDisabledBackground
+                ).opacity(configuration.isPressed ? 0.7 : 1.0)
             )
-            .clipShape(RoundedRectangle(cornerRadius: Config.global.cornerRadius))
+            .clipShape(RoundedRectangle(cornerRadius: Measurements.cornerRadius))
     }
 }
 
@@ -27,14 +32,14 @@ public struct SecondaryButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundStyle(Config.global.secondaryButton.foreground)
+            .foregroundStyle(Colors.Button.secondaryForeground)
             .font(.headline)
             .padding(16)
             .frame(maxWidth: .infinity)
-            .background(Config.global.secondaryButton.background)
+            .background(Colors.Button.secondaryBackground)
             .overlay {
-                RoundedRectangle(cornerRadius: Config.global.cornerRadius)
-                    .stroke(Color(Config.global.secondaryButton.foreground)
+                RoundedRectangle(cornerRadius: Measurements.cornerRadius)
+                    .stroke(Color(Colors.Button.secondaryForeground)
                         .opacity(configuration.isPressed ? 0.7 : 1.0),
                             lineWidth: 1
                     )
