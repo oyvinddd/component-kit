@@ -34,7 +34,7 @@ public struct SecondaryButtonStyle: ButtonStyle {
             .background(Config.global.secondaryButton.background)
             .overlay {
                 RoundedRectangle(cornerRadius: Config.global.cornerRadius)
-                    .stroke(Color(Config.global.secondaryButton.background)
+                    .stroke(Color(Config.global.secondaryButton.foreground)
                         .opacity(configuration.isPressed ? 0.7 : 1.0),
                             lineWidth: 1
                     )
