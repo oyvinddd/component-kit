@@ -19,9 +19,15 @@ import SwiftUI
                 .buttonStyle(.primary())
                 
                 Button(action: {}) {
+                    Text("Primary button (loading)")
+                }
+                .buttonStyle(.primary(state: .loading))
+                .disabled(true)
+                
+                Button(action: {}) {
                     Text("Primary button (disabled)")
                 }
-                .buttonStyle(.primary())
+                .buttonStyle(.primary(state: .disabled))
                 .disabled(true)
                 
                 Button(action: {}) {

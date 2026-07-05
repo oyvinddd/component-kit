@@ -7,30 +7,49 @@
 
 import SwiftUI
 
+public enum ButtonState {
+    case idle, loading, disabled
+}
+
 public struct PrimaryButtonStyle: ButtonStyle {
     
-    @Environment(\.isEnabled) private var isEnabled
+    //@Environment(\.isEnabled) private var isEnabled
     
-    private let isLoading: Bool
+    private let state: ButtonState
     
-    public init(isLoading: Bool = false) {
-        self.isLoading = isLoading
+    private var isLoading: Bool { state == .loading }
+    
+    private var backgroundColor: Color {
+        switch state {
+        case .disabled:
+            Colors.Button.primaryDisabledBackground
+        default:
+            Colors.Button.primaryBackground
+        }
+    }
+    
+    public init(state: ButtonState = .idle) {
+        self.state = state
     }
     
     public func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .foregroundStyle(Colors.Button.primaryForeground)
-            .font(.headline)
-            .padding(16)
-            .frame(maxWidth: .infinity)
-            .background(
-                Color(
-                    isEnabled
-                    ? Colors.Button.primaryBackground
-                    : Colors.Button.primaryDisabledBackground
-                ).opacity(configuration.isPressed ? 0.7 : 1.0)
-            )
-            .clipShape(RoundedRectangle(cornerRadius: Measurements.cornerRadius))
+        ZStack {
+            configuration.label
+                .opacity(isLoading ? 0.0 : 1.0)
+            if isLoading {
+                LoadingDotsView()
+            }
+        }
+        .foregroundStyle(Colors.Button.primaryForeground)
+        .font(.headline)
+        .padding(16)
+        .frame(maxWidth: .infinity)
+        .background(
+            Color(backgroundColor)
+                .opacity(configuration.isPressed ? Measurements.buttonPressedOpacity : 1.0)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: Measurements.cornerRadius))
+        .buttonPressEffect(configuration.isPressed)
     }
 }
 
@@ -46,17 +65,18 @@ public struct SecondaryButtonStyle: ButtonStyle {
             .overlay {
                 RoundedRectangle(cornerRadius: Measurements.cornerRadius)
                     .stroke(Color(Colors.Button.secondaryForeground)
-                        .opacity(configuration.isPressed ? 0.7 : 1.0),
+                        .opacity(configuration.isPressed ? Measurements.buttonPressedOpacity : 1.0),
                             lineWidth: 1
                     )
             }
+            .buttonPressEffect(configuration.isPressed)
     }
 }
 
 extension ButtonStyle where Self == PrimaryButtonStyle {
     
-    public static func primary(isLoading: Bool = false) -> PrimaryButtonStyle {
-        return PrimaryButtonStyle(isLoading: isLoading)
+    public static func primary(state: ButtonState = .idle) -> PrimaryButtonStyle {
+        return PrimaryButtonStyle(state: state)
     }
 }
 

@@ -9,12 +9,29 @@ import SwiftUI
 
 @MainActor public struct Measurements {
     
-    static var shared = Measurements(cornerRadius: 8.0)
+    public static var shared = Measurements(
+        cornerRadius: 8.0,
+        horizontalPadding: 16.0,
+        buttonPressedScale: 0.98,
+        buttonPressedOpacity: 0.8
+    )
     
     var cornerRadius: CGFloat
+    
+    var horizontalPadding: CGFloat
+    
+    var buttonPressedScale: CGFloat
+    
+    var buttonPressedOpacity: CGFloat
 }
 
 extension Measurements {
     
-    static var cornerRadius: CGFloat { Measurements.shared.cornerRadius }
+    public static var cornerRadius: CGFloat { Measurements.shared.cornerRadius }
+    
+    public static var horizontalPadding: CGFloat { Measurements.shared.horizontalPadding }
+    
+    public static var buttonPressedScale: CGFloat { Measurements.shared.buttonPressedScale }
+    
+    public static var buttonPressedOpacity: CGFloat { Measurements.shared.buttonPressedOpacity }
 }
