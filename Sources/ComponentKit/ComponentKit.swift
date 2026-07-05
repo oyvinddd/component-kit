@@ -5,8 +5,6 @@ import SwiftUI
 
 #Preview() {
     
-    @Previewable @State var foo: String = ""
-    
     NavigationStack {
         
         ScrollView {
@@ -18,12 +16,12 @@ import SwiftUI
                 Button(action: {}) {
                     Text("Primary button")
                 }
-                .buttonStyle(.primary)
+                .buttonStyle(.primary())
                 
                 Button(action: {}) {
                     Text("Primary button (disabled)")
                 }
-                .buttonStyle(.primary)
+                .buttonStyle(.primary())
                 .disabled(true)
                 
                 Button(action: {}) {
@@ -33,7 +31,7 @@ import SwiftUI
                 
                 // MARK: - Text fields
                 
-                TextField("Text field", text: $foo)
+                TextField("Text field", text: Binding.constant(""))
                     .textFieldStyle(.primary)
             }
             .padding(.horizontal, 16)

@@ -11,6 +11,12 @@ public struct PrimaryButtonStyle: ButtonStyle {
     
     @Environment(\.isEnabled) private var isEnabled
     
+    private let isLoading: Bool
+    
+    public init(isLoading: Bool = false) {
+        self.isLoading = isLoading
+    }
+    
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundStyle(Colors.Button.primaryForeground)
@@ -49,8 +55,8 @@ public struct SecondaryButtonStyle: ButtonStyle {
 
 extension ButtonStyle where Self == PrimaryButtonStyle {
     
-    public static var primary: PrimaryButtonStyle {
-        return PrimaryButtonStyle()
+    public static func primary(isLoading: Bool = false) -> PrimaryButtonStyle {
+        return PrimaryButtonStyle(isLoading: isLoading)
     }
 }
 

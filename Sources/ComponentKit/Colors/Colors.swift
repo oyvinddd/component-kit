@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@MainActor enum Colors {
+@MainActor public enum Colors {
     
     static var config = Config.default
     

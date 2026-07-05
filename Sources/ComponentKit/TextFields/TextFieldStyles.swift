@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-@MainActor struct PrimaryTextFieldStyle: @MainActor TextFieldStyle {
+@MainActor public struct PrimaryTextFieldStyle: @MainActor TextFieldStyle {
     
-    func _body(configuration: TextField<Self._Label>) -> some View {
+    public func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
             .foregroundStyle(Colors.Input.foreground)
             .font(.system(size: 17))
@@ -24,7 +24,7 @@ import SwiftUI
 
 extension TextFieldStyle where Self == PrimaryTextFieldStyle {
 
-    static var primary: PrimaryTextFieldStyle {
+    public static var primary: PrimaryTextFieldStyle {
         return PrimaryTextFieldStyle()
     }
 }
