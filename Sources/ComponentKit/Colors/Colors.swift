@@ -168,83 +168,83 @@ import SwiftUI
 
 extension Colors.Brand {
     
-    static var primary: Color { Colors.config.brand.primary }
+    public static var primary: Color { Colors.config.brand.primary }
     
-    static var secondary: Color { Colors.config.brand.secondary }
+    public static var secondary: Color { Colors.config.brand.secondary }
 }
 
 extension Colors.Text {
     
-    static var primary: Color { Colors.config.text.primary }
+    public static var primary: Color { Colors.config.text.primary }
     
-    static var secondary: Color { Colors.config.text.secondary }
+    public static var secondary: Color { Colors.config.text.secondary }
     
-    static var disabled: Color { Colors.config.text.disabled }
+    public static var disabled: Color { Colors.config.text.disabled }
     
-    static var inverse: Color { Colors.config.text.inverse }
+    public static var inverse: Color { Colors.config.text.inverse }
 }
 
 extension Colors.Background {
     
-    static var primary: Color { Colors.config.background.primary }
+    public static var primary: Color { Colors.config.background.primary }
     
-    static var secondary: Color { Colors.config.background.secondary }
+    public static var secondary: Color { Colors.config.background.secondary }
     
-    static var surface: Color { Colors.config.background.surface }
+    public static var surface: Color { Colors.config.background.surface }
 }
 
 extension Colors.Border {
     
-    static var primary: Color { Colors.config.border.primary }
+    public static var primary: Color { Colors.config.border.primary }
     
-    static var focused: Color { Colors.config.border.focused }
+    public static var focused: Color { Colors.config.border.focused }
     
-    static var disabled: Color { Colors.config.border.disabled }
+    public static var disabled: Color { Colors.config.border.disabled }
 }
 
 extension Colors.Button {
     
-    static var primaryBackground: Color { Colors.config.button.primaryBackground }
+    public static var primaryBackground: Color { Colors.config.button.primaryBackground }
     
-    static var primaryForeground: Color { Colors.config.button.primaryForeground }
+    public static var primaryForeground: Color { Colors.config.button.primaryForeground }
     
-    static var primaryDisabledBackground: Color { Colors.config.button.primaryDisabledBackground }
+    public static var primaryDisabledBackground: Color { Colors.config.button.primaryDisabledBackground }
     
-    static var primaryDisabledForeground: Color { Colors.config.button.primaryDisabledForeground }
+    public static var primaryDisabledForeground: Color { Colors.config.button.primaryDisabledForeground }
     
-    static var secondaryBackground: Color { Colors.config.button.secondaryBackground }
+    public static var secondaryBackground: Color { Colors.config.button.secondaryBackground }
     
-    static var secondaryForeground: Color { Colors.config.button.secondaryForeground }
+    public static var secondaryForeground: Color { Colors.config.button.secondaryForeground }
     
-    static var secondaryBorder: Color { Colors.config.button.secondaryBorder }
+    public static var secondaryBorder: Color { Colors.config.button.secondaryBorder }
 }
 
 extension Colors.Input {
     
-    static var background: Color { Colors.config.input.background }
+    public static var background: Color { Colors.config.input.background }
 
-    static var foreground: Color { Colors.config.input.foreground }
+    public static var foreground: Color { Colors.config.input.foreground }
 
-    static var placeholder: Color { Colors.config.input.placeholder }
+    public static var placeholder: Color { Colors.config.input.placeholder }
 
-    static var border: Color { Colors.config.input.border }
+    public static var border: Color { Colors.config.input.border }
 
-    static var focusedBorder: Color { Colors.config.input.focusedBorder }
+    public static var focusedBorder: Color { Colors.config.input.focusedBorder }
 
-    static var errorBorder: Color { Colors.config.input.errorBorder }
+    public static var errorBorder: Color { Colors.config.input.errorBorder }
 
-    static var disabledBorder: Color { Colors.config.input.disabledBorder }
+    public static var disabledBorder: Color { Colors.config.input.disabledBorder }
 
-    static var disabledBackground: Color { Colors.config.input.disabledBackground }
+    public static var disabledBackground: Color { Colors.config.input.disabledBackground }
 }
 
 extension Colors.Status {
     
-    static var success: Color { Colors.config.status.success }
+    public static var success: Color { Colors.config.status.success }
     
-    static var warning: Color { Colors.config.status.warning }
+    public static var warning: Color { Colors.config.status.warning }
     
-    static var error: Color { Colors.config.status.error }
+    public static var error: Color { Colors.config.status.error }
     
-    static var info: Color { Colors.config.status.info }
+    public static var info: Color { Colors.config.status.info }
 }
