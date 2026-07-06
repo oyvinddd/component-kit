@@ -9,23 +9,21 @@ import SwiftUI
 
 @MainActor public enum Colors {
     
-    public static var config = Config.default
-    
     @MainActor public struct Config {
         
-        var brand: Brand
+        public var brand: Brand
         
-        var text: Text
+        public var text: Text
         
-        var background: Background
+        public var background: Background
         
-        var border: Border
+        public var border: Border
         
-        var button: Button
+        public var button: Button
         
-        var input: Input
+        public var input: Input
         
-        var status: Status
+        public var status: Status
         
         static let `default` = Config(
             brand: .init(
@@ -78,85 +76,91 @@ import SwiftUI
     
     @MainActor public struct Brand {
         
-        var primary: Color
+        public var primary: Color
         
-        var secondary: Color
+        public var secondary: Color
     }
     
     @MainActor public struct Text {
         
-        var primary: Color
+        public var primary: Color
         
-        var secondary: Color
+        public var secondary: Color
         
-        var disabled: Color
+        public var disabled: Color
         
-        var inverse: Color
+        public var inverse: Color
     }
     
     @MainActor public struct Background {
         
-        var primary: Color
+        public var primary: Color
         
-        var secondary: Color
+        public var secondary: Color
         
-        var surface: Color
+        public var surface: Color
     }
     
     @MainActor public struct Border {
         
-        var primary: Color
+        public var primary: Color
         
-        var focused: Color
+        public var focused: Color
         
-        var disabled: Color
+        public var disabled: Color
     }
     
     @MainActor public struct Button {
         
-        var primaryBackground: Color
+        public var primaryBackground: Color
         
-        var primaryForeground: Color
+        public var primaryForeground: Color
         
-        var primaryDisabledBackground: Color
+        public var primaryDisabledBackground: Color
         
-        var primaryDisabledForeground: Color
+        public var primaryDisabledForeground: Color
         
-        var secondaryBackground: Color
+        public var secondaryBackground: Color
         
-        var secondaryForeground: Color
+        public var secondaryForeground: Color
         
-        var secondaryBorder: Color
+        public var secondaryBorder: Color
     }
     
     @MainActor public struct Input {
 
-        var background: Color
+        public var background: Color
 
-        var foreground: Color
+        public var foreground: Color
 
-        var placeholder: Color
+        public var placeholder: Color
 
-        var border: Color
+        public var border: Color
 
-        var focusedBorder: Color
+        public var focusedBorder: Color
 
-        var errorBorder: Color
+        public var errorBorder: Color
 
-        var disabledBorder: Color
+        public var disabledBorder: Color
 
-        var disabledBackground: Color
+        public var disabledBackground: Color
     }
     
     @MainActor public struct Status {
         
-        var success: Color
+        public var success: Color
         
-        var warning: Color
+        public var warning: Color
         
-        var error: Color
+        public var error: Color
         
-        var info: Color
+        public var info: Color
+    }
+    
+    public static var config = Config.default
+    
+    public static func configure(_ config: Config?) {
+        self.config = config ?? Config.default
     }
 }
 
