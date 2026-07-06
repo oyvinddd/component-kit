@@ -9,9 +9,9 @@ import SwiftUI
 
 @MainActor public enum Colors {
     
-    static var config = Config.default
+    public static var config = Config.default
     
-    struct Config {
+    @MainActor public struct Config {
         
         var brand: Brand
         
@@ -76,14 +76,14 @@ import SwiftUI
         )
     }
     
-    @MainActor struct Brand {
+    @MainActor public struct Brand {
         
         var primary: Color
         
         var secondary: Color
     }
     
-    @MainActor struct Text {
+    @MainActor public struct Text {
         
         var primary: Color
         
@@ -94,7 +94,7 @@ import SwiftUI
         var inverse: Color
     }
     
-    @MainActor struct Background {
+    @MainActor public struct Background {
         
         var primary: Color
         
@@ -103,7 +103,7 @@ import SwiftUI
         var surface: Color
     }
     
-    @MainActor struct Border {
+    @MainActor public struct Border {
         
         var primary: Color
         
@@ -112,7 +112,7 @@ import SwiftUI
         var disabled: Color
     }
     
-    @MainActor struct Button {
+    @MainActor public struct Button {
         
         var primaryBackground: Color
         
@@ -129,7 +129,7 @@ import SwiftUI
         var secondaryBorder: Color
     }
     
-    @MainActor struct Input {
+    @MainActor public struct Input {
 
         var background: Color
 
@@ -148,7 +148,7 @@ import SwiftUI
         var disabledBackground: Color
     }
     
-    @MainActor struct Status {
+    @MainActor public struct Status {
         
         var success: Color
         
