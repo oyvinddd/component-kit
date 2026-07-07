@@ -13,8 +13,6 @@ public enum ButtonState {
 
 public struct PrimaryButtonStyle: ButtonStyle {
     
-    //@Environment(\.isEnabled) private var isEnabled
-    
     private let state: ButtonState
     
     private var isLoading: Bool { state == .loading }
@@ -73,16 +71,16 @@ public struct SecondaryButtonStyle: ButtonStyle {
     }
 }
 
-extension ButtonStyle where Self == PrimaryButtonStyle {
+public extension ButtonStyle where Self == PrimaryButtonStyle {
     
-    public static func primary(state: ButtonState = .idle) -> PrimaryButtonStyle {
+    static func primary(state: ButtonState = .idle) -> PrimaryButtonStyle {
         return PrimaryButtonStyle(state: state)
     }
 }
 
-extension ButtonStyle where Self == SecondaryButtonStyle {
+public extension ButtonStyle where Self == SecondaryButtonStyle {
     
-    public static var secondary: SecondaryButtonStyle {
+    static var secondary: SecondaryButtonStyle {
         return SecondaryButtonStyle()
     }
 }
